@@ -10,7 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/db": "latest",
+    "@astrojs/db": "^0.21.2",
+    "@astrojs/netlify": "^7.0.12",
     "@astrojs/react": "latest",
     "@tailwindcss/vite": "^4.0.0",
     "astro": "latest",

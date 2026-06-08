@@ -3,11 +3,16 @@ import db from '@astrojs/db';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
+import netlify from '@astrojs/netlify';
+
 export default defineConfig({
   site: 'https://literaturafest1.netlify.app',
   integrations: [db(), react()],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
   output: 'static',
+  adapter: netlify(),
 });
