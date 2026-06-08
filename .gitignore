@@ -1,0 +1,33 @@
+# Dependencias e instalaciones
+node_modules/
+/dist/
+
+# Archivos generados dinámicamente por Astro (¡Acá vive la magia de los tipos!)
+.astro/
+
+# Archivos locales de la Base de Datos de Astro DB
+# Bloqueamos el archivo físico para que Netlify use su propio entorno al compilar
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de configuración del entorno / Secretos
+.env
+.env.production
+.env.local
+.env.*.local
+
+# Archivos temporales del sistema operativo (Windows / Mac)
+Thumbs.db
+.DS_Store
+*.log
+
+# Archivos temporales de Editores (VS Code, etc.)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,33 @@
+---
+import { db, Emotion, Word, Connector, Image } from 'astro:db';
+import Card from '../components/Card.jsx';
+import '../styles/global.css';
+
+// Traemos los datos frescos de la base de datos que acabamos de validar
+const emotions = await db.select().from(Emotion);
+const words = await db.select().from(Word);
+const connectors = await db.select().from(Connector);
+const images = await db.select().from(Image);
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metamorfosis — Simbolización de la Poesía</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Lora:ital,wght=1,500&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-zinc-950 overflow-hidden select-none">
+    
+    <Card 
+      client:only="react" 
+      initialEmotions={emotions}
+      initialWords={words}
+      initialConnectors={connectors}
+      initialImages={images}
+    />
+
+  </body>
+</html>
