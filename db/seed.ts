@@ -11,9 +11,9 @@ export default async function seed() {
 
   // 2. Insertar Palabras
   await db.insert(Word).values([
-    { id: 1, emotionId: 'alegria', content: 'luz' },
-    { id: 2, emotionId: 'alegria', content: 'vuelo' },
-    { id: 3, emotionId: 'alegria', content: 'risa' },
+    { id: 1, emotionId: 'alegría', content: 'luz' },
+    { id: 2, emotionId: 'alegría', content: 'vuelo' },
+    { id: 3, emotionId: 'alegría', content: 'risa' },
     { id: 4, emotionId: 'rabia', content: 'fuego' },
     { id: 5, emotionId: 'rabia', content: 'grieta' },
     { id: 6, emotionId: 'rabia', content: 'trueno' },
@@ -27,14 +27,14 @@ export default async function seed() {
 
   // 3. Insertar Conectores
   await db.insert(Connector).values([
-    { id: 1, emotionId: 'alegria', content: 'enciende la' },
-    { id: 2, emotionId: 'alegria', content: 'baila sobre el' },
-    { id: 3, emotionId: 'rabia', content: 'rompe el' },
-    { id: 4, emotionId: 'rabia', content: 'quema la' },
-    { id: 5, emotionId: 'calma', content: 'abraza el' },
-    { id: 6, emotionId: 'calma', content: 'reposa en la' },
+    { id: 1, emotionId: 'alegria', content: 'enciende' },
+    { id: 2, emotionId: 'alegria', content: 'danza sobre' },
+    { id: 3, emotionId: 'rabia', content: 'rompe' },
+    { id: 4, emotionId: 'rabia', content: 'quema' },
+    { id: 5, emotionId: 'calma', content: 'abraza' },
+    { id: 6, emotionId: 'calma', content: 'reposa en' },
     { id: 7, emotionId: 'nostalgia', content: 'se esconde en' },
-    { id: 8, emotionId: 'nostalgia', content: 'dibuja un' }
+    { id: 8, emotionId: 'nostalgia', content: 'dibuja' }
   ]);
 
   // 4. Insertar Imágenes de Fondo de Alta Calidad

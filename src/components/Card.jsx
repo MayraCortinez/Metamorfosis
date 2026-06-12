@@ -44,8 +44,9 @@ export default function Card({ initialEmotions, initialWords, initialConnectors,
   const currentBgClass = initialEmotions.find(e => e.id === currentEmotion)?.bgClass || 'rgba(0,0,0,0.4)';
 
   return (
+    
     <div className="relative w-full h-screen flex flex-col items-center justify-center font-sans transition-all duration-1000 ease-in-out bg-zinc-950">
-      
+      <p className="text-zinc-400 text-sm tracking-widest uppercase mb-3 font-mono">Metamorfosis Poética</p>
       {/* Imagen de Fondo Dinámica */}
       {bgImage && (
         <div 
@@ -61,7 +62,7 @@ export default function Card({ initialEmotions, initialWords, initialConnectors,
       />
 
       {/* Contenedor Principal */}
-      <div className="relative z-10 w-11/12 max-w-xl p-8 rounded-2xl bg-zinc-900/80 border border-zinc-800 backdrop-blur-md shadow-2xl text-center space-y-8">
+      <div className="relative z-10 w-11/12 max-w-xl p-8 rounded-2xl bg-zinc-900/30 border border-zinc-600 backdrop-blur-md shadow-2xl text-center space-y-8">
         
         {/* Selector de Emociones */}
         <div className="flex flex-wrap justify-center gap-2">
@@ -82,7 +83,6 @@ export default function Card({ initialEmotions, initialWords, initialConnectors,
 
         {/* El Verso Poético Generado */}
         <div className="py-12 px-4 border-y border-zinc-800/50">
-          <p className="text-zinc-400 text-sm tracking-widest uppercase mb-3 font-mono">Metamorfosis Poética</p>
           <div className="space-y-2">
             <span className="block text-3xl md:text-4xl text-zinc-100 font-serif font-semibold italic capitalize tracking-wide transition-all duration-500">
               {selectedWord}
