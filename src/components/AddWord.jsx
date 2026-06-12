@@ -1,34 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function AddWord({ emotionId, onWordAdded }) {
   const [text, setText] = useState('');
+  const [lastAdded, setLastAdded] = useState('');
 
-  const handleKeyDown = async (e) => {
-    // Se guarda automáticamente al presionar ENTER
+  useEffect(() => {
+    if (lastAdded) {
+      const timer = setTimeout(() => setLastAdded(''), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [lastAdded]);
+
+  const handleKeyDown = (e) => {
     if (e.key === 'Enter' && text.trim()) {
       e.preventDefault();
-      const wordToSend = text.trim();
-      setText(''); // Limpia el espacio al instante para dar fluidez
+      const wordToSend = text.trim().toLowerCase();
+      setText('');
 
-      try {
-        const response = await fetch('/api/add-word', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ emotionId, content: wordToSend })
-        });
+      // Creamos un formato de objeto idéntico al que viene de la base de datos
+      const fakeNewWord = {
+        id: Date.now(), // ID único temporal
+        emotionId: emotionId,
+        content: wordToSend
+      };
 
-        if (response.ok) {
-          const data = await response.json();
-          if (onWordAdded) onWordAdded(data.newWord);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
+      setLastAdded(wordToSend);
+      if (onWordAdded) onWordAdded(fakeNewWord);
     }
   };
 
   return (
-    <div className="flex justify-center mt-6">
+    <div className="flex flex-col items-center mt-6">
       <input
         type="text"
         value={text}
@@ -37,6 +39,12 @@ export default function AddWord({ emotionId, onWordAdded }) {
         placeholder="+ añadir palabra..."
         className="w-40 bg-transparent border-b border-white/30 text-white text-center text-sm placeholder-white/40 focus:outline-none focus:border-white/80 transition-all italic py-1 tracking-wider"
       />
+
+      {lastAdded && (
+        <p className="text-xs text-zinc-400 italic mt-2">
+          Palabra añadida: "{lastAdded}"
+        </p>
+      )}
     </div>
   );
 }
