@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-"build": "astro db execute db/seed.ts --local && cross-env ASTRO_DATABASE_FILE=.astro/content.db astro build --local",
-  "preview": "astro preview",
+    "build": "astro db execute db/seed.ts --local && cross-env ASTRO_DATABASE_FILE=.astro/content.db astro build --local",
+    "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "vite": "^7.0.0"
   },
   "devDependencies": {
+    "@netlify/blobs": "^10.7.9",
     "cross-env": "^10.1.0"
   }
 }
