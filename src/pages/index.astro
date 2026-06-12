@@ -3,7 +3,7 @@ import { db, Emotion, Word, Connector, Image } from 'astro:db';
 import Card from '../components/Card.jsx';
 import '../styles/global.css';
 
-// Traemos los datos frescos de la base de datos que acabamos de validar
+// Traemos los datos frescos de la base de datos
 const emotions = await db.select().from(Emotion);
 const words = await db.select().from(Word);
 const connectors = await db.select().from(Connector);
