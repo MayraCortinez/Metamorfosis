@@ -45,7 +45,7 @@ export default function Card({ initialEmotions, initialWords, initialConnectors,
 
   return (
     
-    <div className="relative w-full h-screen flex flex-col items-center justify-center font-sans transition-all duration-1000 ease-in-out bg-zinc-950">
+    <div className="relative w-full h-screen flex flex-col items-center justify-center font-sans transition-all duration-1000 ease-in-out bg-zinc-950/70">
       <p className="text-zinc-400 text-sm tracking-widest uppercase mb-3 font-mono">Metamorfosis Poética</p>
       {/* Imagen de Fondo Dinámica */}
       {bgImage && (

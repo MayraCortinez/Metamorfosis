@@ -1,6 +1,6 @@
 import { db, Emotion, Word, Connector, Image } from 'astro:db';
 
-export default async function seed() {
+export default async function() {
   // 1. Insertar Emociones
   await db.insert(Emotion).values([
     { id: 'alegria', name: 'Alegría', bgClass: 'rgba(249, 115, 22, 0.2)' },

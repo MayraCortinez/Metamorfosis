@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
-  site: 'https://literaturafest1.netlify.app',
+  site: 'https://literaturafest.netlify.app',
   integrations: [db(), react()],
 
   vite: {
