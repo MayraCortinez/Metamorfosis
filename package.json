@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro db execute db/seed.ts --local && astro build --local",
+    "build": "astro db execute db/seed.ts --local && astro build --local --remote",
     "preview": "astro preview",
     "astro": "astro"
   },

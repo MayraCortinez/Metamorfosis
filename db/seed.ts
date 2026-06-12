@@ -1,6 +1,20 @@
 import { db, Emotion, Word, Connector, Image } from 'astro:db';
 
 export default async function() {
+  // ----------------------------------------------------------------
+  // ⚠️ EL ORDEN DE BORRADO: Primero las hijas, después el padre
+  // ----------------------------------------------------------------
+  await db.delete(Word);
+  await db.delete(Connector);
+  await db.delete(Image);
+  
+  // Ahora que las demás están vacías, podemos borrar las emociones de forma segura
+  await db.delete(Emotion);
+
+  // ----------------------------------------------------------------
+  // 🚀 INSERTS (Tu contenido poético impecable)
+  // ----------------------------------------------------------------
+
   // 1. Insertar Emociones
   await db.insert(Emotion).values([
     { id: 'alegria', name: 'Alegría', bgClass: 'rgba(249, 115, 22, 0.2)' },
@@ -11,9 +25,9 @@ export default async function() {
 
   // 2. Insertar Palabras
   await db.insert(Word).values([
-    { id: 1, emotionId: 'alegría', content: 'luz' },
-    { id: 2, emotionId: 'alegría', content: 'vuelo' },
-    { id: 3, emotionId: 'alegría', content: 'risa' },
+    { id: 1, emotionId: 'alegria', content: 'luz' },
+    { id: 2, emotionId: 'alegria', content: 'vuelo' },
+    { id: 3, emotionId: 'alegria', content: 'risa' },
     { id: 4, emotionId: 'rabia', content: 'fuego' },
     { id: 5, emotionId: 'rabia', content: 'grieta' },
     { id: 6, emotionId: 'rabia', content: 'trueno' },
